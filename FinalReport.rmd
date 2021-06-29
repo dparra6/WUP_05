@@ -53,11 +53,29 @@ As we can see by the two graphs, on the side of the aids we can see almost 60% o
 
 <!--Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question!-->
 
+```{r}
+table1 <- xtabs(~infected + treatment, data=females)
+rowPerc(table1)
+colPerc(table1)
+```
+
+Seeing the bar above we can see that the odds with the placebo in aids were 41.18 and the one with none are 51.94.
+
 ## Inferential Results
 
 <!--State hypothesis clearly.  Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc.  Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfys the assumptions and is appropriate to answer the research question!-->
 
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
+```
+
+We can see that the hypothesis containing this is a Null Hypothesis because the ratio is one, we can also reject this hypothesis.
 
 # Discussion and Conclusion
 
 <!--Discussion and conclusion here.  If you found a relationship be sure to consider whether the relationship occurs because one of the variavbles causes the other, or whether they perhasps are related for some other reason.  Watch the chapter 6 videos from the GeorgeTown videos collection.!-->
+
+First we can see that we started with looking at the placebo's and the actual treatment that we can see how many people had aids and how many people did not have it because of the treatment. Then we moved onto the next tab where we can see the percentages of the actual females who had it with the placebo and the treatment. After we can see the ratio of this hypothesis and we can that this is a null hypothesis which we can reject. 
+
